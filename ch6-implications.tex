@@ -8,7 +8,7 @@ In the last 15 minutes of his plenary, he discussed his advice for upcoming and 
 His one piece of advice (to paraphrase him) was to ``make sure that every single piece of research you do has a conservation implication to it", and to ``explicitly make a `conservation implications' section of every single paper that you write".
 Given this thesis is comprised of several related research papers, it seemed appropriate to synthesize the conservation implications of these projects together in one chapter.
 
-\subsubsection{Correcting for Detectability in Long-term Studies}
+\section{Correcting for Detectability in Long-term Studies}
 
 \par North American Breeding Bird Survey data have been highly useful in conservation \citep{hudson_role_2017}.
 The dataset is long term, with close to 60 years of longitudinal data; it is highly structured, meaning there are specific protocols that must be followed in order to maintain a sense of homogeneity between counts; and the routes span a vast area of Canada and the US.
@@ -24,7 +24,7 @@ This is particularly important in jurisdictions such as Canada that rely on esti
 Species where the true trend is masked by changes in detectability may not get properly listed, and thus could face continuing threats and issues that come with ``monitoring to extinction" \citep{martin_acting_2012, lindenmayer_counting_2013}.
 By including this key piece of information, and by being able to account for a large source of bias, the BBS can continue to provide excellent information on status, trends, and relative abundance of birds in North America well into the future.
 
-\subsubsection{Improving Population Size Estimates}
+\section{Improving Population Size Estimates}
 
 \par Detectability offsets derived from NA-POPS can be used to improve population estimates of landbirds in North America. 
 Because they include separate estimates for on- vs. off-road surveys, the NA-POPS offsets would represent an improvement over the current PIF population estimates which assume that the roadside BBS is representative of the entire landscape \citep{rosenberg_partners_2016, stanton_estimating_2019}, even though it is well known that detectability of birds changes with on- vs off-road surveys \citep{sauer_first_2017, yip_sound_2017, cooke_road_2020}, and estimates of bird populations have been shown to improve when accounting for roadside bias \citep{solymos_lessons_2020}. 
@@ -36,7 +36,7 @@ This means that conservation problems that rely on estimates of detectability su
 For organizations such as Partners in Flight, Boreal Avian Modelling project \citep{cumming_toward_2010}, National Audubon Society, and others that explicitly rely on detectability information for bird population size estimates or abundance modelling using small point count datasets, these improved estimates (and new estimates and predictions) provide a way forward for continuing to produce accurate estimates of population size that are based on data-driven detectability estimates.
 For applications that tend to rely on known presences, such as threat assessments, our method opens new possibilities for incorporating detectability, and thus gaining a fuller understanding of  potential locations of undetected occurrences, and more effective allocation of survey effort.
 
-\subsubsection{Data Integration}
+\section{Data Integration}
 
 \par Data integration is a growing topic throughout ecology \citep{isaac_data_2020, miller_recent_2019, pacifici_integrating_2017, boersch-supan_integrating_2021}, especially as the number of data sets continue to grow \citep{binley_minimizing_2023}.
 As such, recognizing what biases exist---in both professionally-collected data and community science data \citep{binley_data_2023}---across complementary data sets and working out methodologies to jointly model these data sets can improve inference of the state of a biological system.
@@ -69,7 +69,7 @@ We propose that future studies investigate how to directly include data from Bor
 We suspect that such a model would have a similar model structure as Equation \ref{bbs_varprop}, but perhaps with extra terms for project-specific effects.
 Because counts within a stratum are averaged for trend, even if additional data is sparse in a specific stratum, it will still contribute to the trend.
 
-\subsubsection{Facilitating Open Science and Future Detectability Research}
+\section{Facilitating Open Science and Future Detectability Research}
 
 \par NA-POPS is an open-access database, with several avenues for researchers to be able to explore and access these results. The unprocessed results can simply be downloaded from the GitHub Organization (https://github.com/na-pops/results), the summarized results and predictions can be visualized using the NA-POPS dashboard (found at https://na-pops.org), and the processed results can be accessed using the R package \ttt{napops} \citep{edwards_napops_2024}. Ease of use of these detectability functions will allow researchers from across North America to use these estimates where they see fit, scrutinize these estimates where there is disagreement, and explore deeper into species-specific estimates that are surprising or counterintuitive.
 
