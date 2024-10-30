@@ -65,7 +65,6 @@ Several promising studies have demonstrated the utility of community science pro
 With data from eBird being available for researchers to download, future studies could consider generating roadside status and forest coverage variables for stationary protocol checklists which are reasonably short in length (e.g., $< 10$ minutes).
 Using GIS software, roadside status and forest coverage variables could be derived and, along with the temporal information from the checklist, can be used as input for the detectability functions in order to produce the estimate of density for that checklist. 
 
-
 The point-level model introduced in Chapter 5 combined with the NA-POPS estimates provide a potentially simple way of integrating these data within the current BBS status and trend models, because the NA-POPS detectability estimates correct for biases in survey duration, survey radius, environmental conditions, and temporal conditions.
 As such, once QPAD \citep{solymos_calibrating_2013} estimates are applied to a point count, including points from the BBS, it is effectively ``speaking the same language" as other point count data sets with QPAD offsets applied.
 In this way, the data can be jointly considered under the same modelling framework.
@@ -85,42 +84,57 @@ However, one benefit that we have shown here is that Bayesian models can still d
 For taxa such as butterflies for which some species have reasonable data and most have very little data \citep{lewthwaite_geographical_2022}, a researcher may still be able to glean reasonable estimates of detectability with the little data available, as long as detectability for some similar species has been examined.
 We suggest that this type of model---where information about detectability is shared among species---be tested with taxa that generally have fewer data collected, and we encourage researchers to continue to make use of existing sources of data \citep{binley_minimizing_2023} to inform these models.
 
-\section{XX Questions or Directions for Future Detectability Research}
+\section{Four Big Questions for Future Detectability Research}
 
 \par This section will explore some of the questions or directions that I feel future statistical ecologists, quantitative biologists, or anyone with an interest in detectability, should explore.
 These are by no means a comprehensive list.
 Instead, they moreso seek to synthesize some of the common themes that have cropped up through my time working with other statisticians, biologists, and ecologists working on similar problems.
 The recent past of computational advances, data availability, and code sharing has made it much more easier to begin to tackle these questions at scale, and so I look forward to working with these future biolgists, ecologists, and statisticians on these problems for hopefully the next few decades.
 
-\subsection{Spatially-explicit estimates of detectability: do we need them?}
+\subsection{Does space matter?}
 
 \par How much spatial information do we need to actually account for when modelling broad-scale estimates of detectability in landbirds?
-Most likely, I believe it is going to be highly species-dependent.
-Wide-ranging species such as American Robins, Song Sparrows
+I think the answer to this question will be highly species-dependent, and I believe it will change depending on whether we are interested in changes in availability, perceptibility, or both.
+Wide-ranging species such as Song Sparrow \textit{Melospiza melodia}, American Robin, Black-capped Chickadee, etc., will likely experience differences in availability throughout the year depending on the survey location.
+In particular with wide-ranging species, this difference in availability could either be on a north-south gradient (i.e., affected by daylight and temperature) or on an east-west gradient (i.e., affected by temperature and differences in ``green-up" times).
+One coarse way to answer this question is to simply model availability as a function of a spatially-explicit unit such as Bird Conservation Region (BCR).
+Doing this would allow potential variation to be captured by these discrete spatial units.
+One further advantage to this is to model changes in \textit{perceptibility} by space as well.
+Recall from Chapter 5 that, at least for Ovenbird, there appeared to be unaccounted-for biases in the perceptibility varprop parameters that may imply biases related to differences in forest coverage.
+As previously noted, detectability can vary with forest type, not just amount of forest.
+Because BCRs explicitly account for ecoregion and associated environmental variables, BCRs could act as a reasonable proxy for differences in vegetation, and therefore capture some of the extra variance in perceptibility.
 
-Spatial information about detectability? Do we really have to take into account space (either on broad sclae like BCRs or on smaller sclaes like latitude or longitude) when calcualing detectability?
-
-\subsection{Has availability shifted over the years due to changes in phenology?}
-
-Shifts in availability over the years? Cite hummingbird example.
-
-\par One newer factor that has occured since 2020 is the brief but signficant period of the "anthropause".
-Some studies showed that birds may have actually been affected by this anthropause when less humans were out and about, in that birds tended to sing (CHECK WHAT HAPPENED HERE WITH WTSP IN CALIFORNIA).
-This may suggest ongoing research to determine effects of anthropogenic noise on bird singing rate, and bird singing times.
-
-\subsection{How important are observer effects?}
-Observer effects that seem to go unmodelled but there there 
-Observer senescence 
-Skill level of IDing birds 
-Ability to accurately estimate distance (not good according to (Alldredge et al., 2007) 
-Soundscape is getting louder 
-Donut effect, esp for grassland birds 
+\par One caveat to answering these questions is that one likely needs a lot of data.
+The NA-POPS project has done a reasonable job at collating a large amount of data across a large spatial extent, and so there are likely enough species within that database to start answering this question.
+However, one could consider also the use of hierarchical models to share information in space, such that data-sparse regions can borrow information from data-rich regions.
+To take it a step further, this hierarchical model could also take on a more spatially-explicit form by only sharing information with nearest neighbours via ICAR models as in \citet{smith_spatially_2023}.
+For particularly data-rich species, one could consider higher resolution spatial units, such as degree blocks, or directly include space in a model as latitude and longitude.
 
 \subsection{Are availability and perceptibility truly independent?}
 
-Are avialability and perceptibility truly independent? Some evidence for it, but coudl this be something that is taken into account when using ARU technology?
+\par In this thesis, and typically in many studies of detectability, availability and perceptibility are treated as independent from each other.
+Availability defines the probability that a bird gives a cue, and perceptibility defines the probability that an observer perceives the cue, \textit{conditional on} a bird giving a cue.
+However, there is some evidence to show that this independence assumption may not necessarily hold for all species, particularly in species with high-pitched songs or species that do not sing often \citep{martin-schwarze_joint_2021}.
+This lack of independence may be particularly evident when considering birds that are calling at a far distance.
+Because the bird is far away, the observer may not be able to hear the bird at its first cue.
+However, removal modelling is typically trying to model time to first detection, but does not account for distance in that time to first detection.
+\citep{solymos_calibrating_2013} give recommendations as to how to model availability and perceptibility jointly, but still make the assumption that the parameters for each component are independent from each other.
+Therefore, there is a need to explore this question of independence further, particularly if detectability estimates are to be used in correcting status and trend estimates, and population estimates.
 
-\subsection{Case Study: The Use of Autonomous Recording Units}
+\subsection{How important are observer effects?}
+
+\par Whether a bird is recorded during a biological survey is as much of a product of detectability as it is a product of effects related to the observer.
+Observer effects are well-known in biological surveys, and many surveys will account for observer effects via a random effect in a mixed effects model.
+Still, there are a few sources of error that a simple random effect may not necessarily be able to capture.
+For example, observers may record birds slightly different from one another, even though they are still technically following the protocol used for the bird survey.
+That is, one observer may record all the ``easy" birds to start and focus on the more rare or difficult birds later in the survey.
+When considering time-to-detection models to calculate availability, this may have the effect of biasing down cue rates for ``difficult" species, such as ones that are quiet or difficult to separate from other species.
+Of course, if the observer is careful to still record the bird in the first time bin that they heard it (but not necessarily identified it), this could alleviate that bias.
+It is also well-known that human observers are inconsistent in judging distance to a singing bird.
+This is especially evident in forests, where attenuation and lack of spatial markers can severely inhibit a person's ability to judge distance \citep{alldredge_field_2007}.
+Inaccurate distances can lead to inaccuracies in modelling effective detection radius in birds, which can cascade into incorrect estimates of population estimates.
+
+\subsection{Can autonomous recording units help?}
 
 \par Although the current NA-POPS database only considers data that are collected via traditional, human-led point counts, the use of autonomous recording units (ARUs) for bird monitoring is becoming more widely-used \citep{perezgranados_estimating_2021, shonfield_autonomous_2017, sugai_terrestrial_2019}.
 ARUs provide the ability to survey in highly remote areas that may be otherwise less accessible for traditional human-collected data.
@@ -140,10 +154,13 @@ While this method can give a coarse measure of distance, it is more repeatable a
 This technique can be combined with localization techniques described in \cite{hedley_direction--arrival_2017} to determine the direction-of-arrival of a bird song.
 In other words, bird songs recorded through ARUs can now have a distance estimation and location estimate attached to them, meaning that ARU counts can roughly be converted into what a traditional point count data sheet would look like, but with much more auxiliary information. 
 
-The growing database of ARU data that exist on ABMI’s WildTrax website (https://wildtrax.ca) provides a unique opportunity for NA-POPS to expand the scope of species detectability by making use of these freely available data.
+\par The growing database of ARU data that exist on ABMI’s WildTrax website (https://wildtrax.ca) provides a unique opportunity for NA-POPS to expand the scope of species detectability by making use of these freely available data.
 One previous study laid the groundwork in detectability estimates using ARUs by generating an offset term that offset detectability estimates generated from human point counts \citep{van_wilgenburg_paired_2017}.
 However, by applying sound pressure level and localization techniques to ARU counts that provide that data, the ARU counts can be converted into an estimate of a traditional point count, with time to first detection and estimated distance attached to each bird in the point count.
 These are exactly the ancillary data needed to apply the QPAD methodology to the data to estimate additional detectability estimates. 
+
+\par One promising pipeline to accomplish this is by making use of openly available tools such as \texttt{opensoundscape} \citep{lapp_open_2023} or \texttt{locaR} \citep{becker_locar_2023}, 
+
 
 \section{Concluding Remarks}
 \par To bring it back to the question initially posed at the beginning of this thesis: ``If a bird calls in a forest, and there is a biologist around surveying for it, does the biologist hear the bird and record it on their data sheet?"
