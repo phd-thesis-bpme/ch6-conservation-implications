@@ -2,13 +2,15 @@
 
 \par Even though imperfect detectability is often the norm when surveying for birds and other organisms, detectability is often overlooked in models used for conservation purposes \citep{bennett_how_2024}.
 This oversight is not limited to small studies either, as long-running, large-scale surveying programs such as the North American Breeding Bird Survey also fail to account for detectability in modelling.
-In this final chapter, I will synthesize some of the conservation implications of systematically estimating detectability in landbirds, particularly as they related to the methods outlined in Chapters 3 - 5. 
+In this final chapter, I will synthesize some of the conservation implications of systematically estimating detectability in landbirds, particularly as they relate to the methods outlined in Chapters 3 - 5. 
 This chapter was inspired by a plenary session given by Professor Gerardo Ceballos at the 2022 Ecological Society of American/Canadian Society for Ecology and Evolution joint conference in Montreal, Quebec, Canada.
 In the last 15 minutes of his plenary, he discussed his advice for upcoming and current graduate students in the field of ecology, evolution, conservation science, and other related fields.
 His one piece of advice (to paraphrase him) was to ``make sure that every single piece of research you do has a conservation implication to it", and to ``explicitly make a `conservation implications' section of every single paper that you write".
+Statistical ecology (a field which I believe this thesis firmly falls into) can often be an esoteric field, with conservation implications only being realized far after methods have been developed.
+Therefore, my goal with this chapter is to explicitly discuss what I feel are important implications for conservation that stems from this work, with the hope that this will continue to spur discussions related to detectability research and to inspire ideas about how to model detectability, how to apply detectability, etc.
 Given this thesis is comprised of several related research papers, it seemed appropriate to synthesize the conservation implications of these projects together in one chapter.
 I will then end the chapter with some future directions and questions that I believe should be pursued in the realm of detectability research.
-I note that these future directions will mostly relate to detectability in landbirds, but I do believe some of the technology and modelling work needing to be done will have implications further afield.
+I note that these future directions will mostly relate to detectability in landbirds, but I believe some of the technology and modelling work needing to be done will have implications further afield.
 
 \section{Conservation Implications}
 
@@ -17,10 +19,9 @@ I note that these future directions will mostly relate to detectability in landb
 \par North American Breeding Bird Survey data have been highly useful in conservation \citep{hudson_role_2017}.
 The dataset is long term, with close to 60 years of longitudinal data; it is highly structured, meaning there are specific protocols that must be followed in order to maintain a sense of homogeneity between counts; and the routes span a vast area of Canada and the US.
 
-\par Despite being a highly-structured dataset that has many biases accounted for, observed counts on a BBS route will still suffer from observational biases based on changing landcover through time at survey locations.
-By explicitly incorporating detectability into the BBS analyses, we can correct for some of these additional sources of bias in the dataset in our attempts at trying to model the true underlying abundance of birds.
-Additionally, it is well-known that landscapes for any given route within the BBS will have likely changed over the potentially 50+ years that the route has been run \citep{sauer_first_2017}.
+\par Despite being a highly-structured dataset that has many biases accounted for, observed counts on a BBS route will still suffer from observational biases based on changing land cover through time at survey locations \citep{sauer_first_2017}.
 For example, increased agricultural and housing needs in some areas have come at the expense of forest cover, and some of the roads used by the BBS have become larger and busier. 
+By explicitly incorporating detectability into the BBS analyses, we can correct for some of these additional sources of bias in the dataset in our attempts to model the true underlying abundance of birds.
 I have shown here how the NA-POPS detectability estimates, in combination with time-series of long-term habitat changes at BBS point locations, can be used to generate detectability offsets to adjust for landscape alterations over time. 
 
 \par Given detectability is currently a dynamic field of research, future BBS outputs that include the most up-to-date research on detectability can begin to generate trends that more closely reflect the true increases or decreases of bird species.
@@ -35,9 +36,9 @@ Because they include separate estimates for on- vs. off-road surveys, the NA-POP
 Generating population sizes using EDRs that account for roadside status and forest coverage may improve the accuracy of continental estimates of population for many landbird species. 
 Additionally, integrating more refined information on density would have the simultaneous benefits of accounting for potential variations in detectability, reducing biases within and among monitoring programs, and generating useful information on local population sizes of birds that could inform conservation prioritizations \citep{veloz_improving_2015}.
 
-Additionally, the hierarchical Bayesian models in Chapter 4 provide an excellent opportunity for detection probabilities to be estimated with higher precision for several species of landbirds in North America, and also provides a method to predict detection probabilities for species which have very little (or even no) data. 
-This means that conservation problems that rely on estimates of detectability such as Value of Information analyses \citep{canessa_when_2015, bennett_when_2018} or prioritizations \citep{hanson_systematic_2024} can make more effective decisions.
-For organizations such as Partners in Flight, Boreal Avian Modelling project \citep{cumming_toward_2010}, National Audubon Society, and others that explicitly rely on detectability information for bird population size estimates or abundance modelling using small point count datasets, these improved estimates (and new estimates and predictions) provide a way forward for continuing to produce accurate estimates of population size that are based on data-driven detectability estimates.
+Additionally, the hierarchical Bayesian models in Chapter 4 provide an excellent opportunity for detection probabilities to be estimated with higher precision for several species of landbirds in North America, and also provide a method to predict detection probabilities for species which have very little (or even no) data. 
+This means that conservation problems that rely on estimates of detectability such as Value of Information analyses \citep{canessa_when_2015, bennett_when_2018} or systematic prioritizations using species distribution maps \citep{hanson_systematic_2024} can make more effective decisions.
+For organizations such as Partners in Flight, Boreal Avian Modelling project \citep{cumming_toward_2010}, National Audubon Society, and others that explicitly rely on detectability information for bird population size estimates or abundance modelling using small point count datasets, these improved detection probabilities provide a way forward for continuing to produce accurate estimates of population size that are based on data-driven approaches.
 For applications that tend to rely on known presences, such as threat assessments, our method opens new possibilities for incorporating detectability, and thus gaining a fuller understanding of  potential locations of undetected occurrences, and more effective allocation of survey effort.
 
 \subsection{Data Integration}
@@ -56,7 +57,7 @@ Integrating these data into a single modelling framework could fill spatial gaps
 \par NA-POPS estimates can be used for data integration across variations in survey duration and timing during the day and season, as well as observation conditions such as forest coverage and roadside-status.
 Integrating information across disparate field programs and sampling protocols remains a key challenge to analyzing compilations of heterogeneous survey data, because the observed counts of birds during any particular survey do not provide comparable estimates of the true density of birds.
 For example, the BBS conducts 3-minute, 400 m, roadside point count surveys, whereas the IMBCR program conducts mostly off-road, 6-minute, unlimited distance point count surveys and records detection distances.
-However, using the QPAD offsets produced by NA-POPS, we can transform raw, survey-level counts into estimates of true density and account for differences among survey method and conditions \citep{stralberg_projecting_2015, solymos_lessons_2020}.
+However, using the QPAD offsets produced by NA-POPS, we can transform raw, survey-level counts into estimates of true density and account for differences among survey methods and conditions \citep{stralberg_projecting_2015, solymos_lessons_2020}.
 For example, BBS counts for a given species can be adjusted using QPAD offsets from NA-POPS for a 3-minute, 400-metre-radius count on a roadside, so that the BBS counts can be integrated with 6-minute, unlimited-distance offroad counts from IMBCR.
 This can allow us to include disparate data sets in the same model, so we no longer have to make broad-scale inferences from a single survey (such as status and trends of North American birds derived solely from the BBS). Instead, we can begin deriving broad-scale inferences with broad-scale information via multiple surveys. 
 
@@ -74,9 +75,9 @@ Because counts within a stratum are averaged for trend, even if additional data 
 
 \subsection{Facilitating Open Science and Future Detectability Research}
 
-\par NA-POPS is an open-access database, with several avenues for researchers to be able to explore and access these results. The unprocessed results can simply be downloaded from the GitHub Organization (https://github.com/na-pops/results), the summarized results and predictions can be visualized using the NA-POPS dashboard (found at https://na-pops.org), and the processed results can be accessed using the R package \ttt{napops} \citep{edwards_napops_2024}. Ease of use of these detectability functions will allow researchers from across North America to use these estimates where they see fit, scrutinize these estimates where there is disagreement, and explore deeper into species-specific estimates that are surprising or counterintuitive.
+\par NA-POPS is an open-access database, with several avenues for researchers to explore and access these results. The unprocessed results can simply be downloaded from the GitHub Organization (https://github.com/na-pops/results), the summarized results and predictions can be visualized using the NA-POPS dashboard (found at https://na-pops.org), and the processed results can be accessed using the R package \ttt{napops} \citep{edwards_napops_2024}. Ease of use of these detectability functions will allow researchers from across North America to use these estimates where they see fit, scrutinize these estimates where there is disagreement, and explore deeper into species-specific estimates that are surprising or counterintuitive.
 
-\par I also hope that this broad-scale synthesis of detectability estimates will inspire future work in landbird detectability across North America, as well as on a global scale. I have mentioned here several surprising findings, including some unexpected results concerning off-road vs on-road surveys. Additionally, I have highlighted several future avenues for more specific detectability research, including investigating spatial effects on cue rate and/or EDR, investigating potential observer effects on EDR, and the need for additional data from several geographic regions of North America. Because detectability is an important consideration in several modelling exercises and carries several conservation implications with it, I recommend that researchers wanting to run bird surveys strategically design their surveys such that the survey protocols allow for detectability estimates to be derived (i.e., \citet{matsuoka_reviving_2014}). 
+\par I also hope that this broad-scale synthesis of detectability estimates will inspire future work in landbird detectability across North America, as well as on a global scale. I have mentioned here several surprising findings, including some unexpected results concerning off-road vs on-road surveys. Additionally, I have highlighted several future avenues for more specific detectability research, including investigating spatial effects on cue rate and/or EDR, investigating potential observer effects on EDR, and the need for additional data from several geographic regions of North America. Because detectability is an important consideration in several modelling exercises and carries important conservation implications, I recommend that researchers strategically design their surveys such that the survey protocols allow for detectability estimates to be derived (e.g., \citet{matsuoka_reviving_2014}). 
 
 \par Finally, I see this work as a proof-of-concept for use with other taxa.
 Obviously, given the vast amount of bird data available, it was relatively easy to obtain estimates for enough data-rich species such that the few data-poor species could have enough information to borrow. 
@@ -87,9 +88,9 @@ I suggest that this type of model---where information about detectability is sha
 \section{Four Questions for Future Detectability Research}
 
 \par This section will explore some of the questions or directions that I feel future statistical ecologists, quantitative biologists, or anyone with an interest in detectability, should explore.
-These are by no means a comprehensive list.
-Instead, they moreso seek to synthesize some of the common themes that have cropped up through my time working with other statisticians, biologists, and ecologists working on similar problems.
-The recent past of computational advances, data availability, and code sharing has made it much more easier to begin to tackle these questions at scale, and so I look forward to working with these future biolgists, ecologists, and statisticians on these problems for hopefully the next few decades.
+This is by no means a comprehensive list.
+Instead, I seek to synthesize some of the common themes that have cropped up through my time working with other statisticians, biologists, and ecologists working on similar problems.
+The recent past of computational advances, data availability, and code sharing has made it much easier to begin to tackle these questions at scale, and so I look forward to working with these future biologists, ecologists, and statisticians on these problems for hopefully the next few decades.
 
 \subsection{Does space matter?}
 
@@ -100,13 +101,13 @@ In particular with wide-ranging species, this difference in availability could e
 One coarse way to answer this question is to simply model availability as a function of a spatially-explicit unit such as Bird Conservation Region (BCR).
 Doing this would allow potential variation to be captured by these discrete spatial units.
 One further advantage to this is to model changes in \textit{perceptibility} by space as well.
-Recall from Chapter 5 that, at least for Ovenbird, there appeared to be unaccounted-for biases in the perceptibility varprop parameters that may imply biases related to differences in forest coverage.
+Recall from Chapter 5 that, at least for Ovenbird, there appeared to be unaccounted-for biases in the perceptibility variance propagation parameters that may imply biases related to differences in forest coverage.
 As previously noted, detectability can vary with forest type, not just amount of forest.
 Because BCRs explicitly account for ecoregion and associated environmental variables, BCRs could act as a reasonable proxy for differences in vegetation, and therefore capture some of the extra variance in perceptibility.
 
 \par One caveat to answering these questions is that one likely needs a lot of data.
 The NA-POPS project has done a reasonable job at collating a large amount of data across a large spatial extent, and so there are likely enough species within that database to start answering this question.
-However, one could consider also the use of hierarchical models to share information in space, such that data-sparse regions can borrow information from data-rich regions.
+However, one could also consider the use of hierarchical models to share information in space, such that data-sparse regions can borrow information from data-rich regions.
 To take it a step further, this hierarchical model could also take on a more spatially-explicit form by only sharing information with nearest neighbours via ICAR models as in \citet{smith_spatially_2023}.
 For particularly data-rich species, one could consider higher resolution spatial units, such as degree blocks, or directly include space in a model as latitude and longitude.
 
@@ -126,8 +127,8 @@ Therefore, there is a need to explore this question of independence further, par
 \par Whether a bird is recorded during a biological survey is as much of a product of detectability as it is a product of effects related to the observer.
 Observer effects are well-known in biological surveys, and many surveys will account for observer effects via a random effect in a mixed effects model.
 Still, there are a few sources of error that a simple random effect may not necessarily be able to capture.
-For example, observers may record birds slightly different from one another, even though they are still technically following the protocol used for the bird survey.
-That is, one observer may record all the ``easy" birds to start and then focus on the more rare or difficult birds later in the survey.
+For example, observers may record birds slightly differently from one another, even though they are still technically following the protocol used for the bird survey.
+That is, one observer may record all the ``easy" birds to start and then focus on the rarer or difficult birds later in the survey.
 When considering time-to-detection models to calculate availability, this may have the effect of biasing down cue rates for ``difficult" species, such as ones that are quiet or difficult to separate from other species.
 Of course, if the observer is careful to still record the bird in the first time bin that they heard it (but not necessarily identified it), this could alleviate that bias.
 It is also well-known that human observers are inconsistent in judging distance to a singing bird.
@@ -171,14 +172,15 @@ Preliminary work has already made use of this pipeline (see https://github.com/B
 \par Detectability is a highly nuanced metric.
 My thesis has focused particularly on attempting to generate broad-scale estimates of detectability (as in Chapter 3), with some emphasis on then trying to improve these estimates afterward (as in Chapter 4).
 These improvements also come with the ability to predict for data-sparse species by allowing the sharing of information between data-rich and data-poor species.
-With this in mind, I feel this body of research has opened up a whole body of potential research avenues to further refine these detectability estimates.
-This is evident by the creation of Boreal Avian Modelling project's Detectability Working group, and by the detectability-related symposium at the 2023 American Ornithological Society's meeting.
+With this in mind, I feel this body of research has opened up a whole body of potential avenues to further refine these detectability estimates.
+This is evident by the creation of the Boreal Avian Modelling project's Detectability Working group, and by the detectability-related symposium at the 2023 American Ornithological Society's meeting.
 It is easy to see why it is important to have good estimates of detectability.
 When applying detectability to the North American Breeding Bird Survey data, I showed how the trend can change significantly at the fine spatial scale of the BBS routes.
 However, if something were severely wrong with the detectability estimate used, it could also then influence a wrong change in trend.
 Although detectability is highly nuanced, I think there is a world of interesting modelling opportunities that lie ahead, and a very interesting opportunity to improve our understanding of biological models and surveys.
 
 \par To bring it back to the question initially posed at the beginning of this thesis: ``If a bird calls in a forest, and there is a biologist around surveying for it, does the biologist hear the bird and record it on their data sheet?"
-My answer still stays the same with ``it depends"; however, I do believe we are in an exciting time in the world of statistical and quantitative ecology such that all of the factors going into the ``it depends" are becoming more clear.
-We have the data, we have the statistical modelling capabilities, we have the computational resources, and we have the domain-specific expert opinion, and so all we now need is the concerted effort to push the field of detectability research ahead.
+I would update my answer to the following: it depends, but if we know the surrounding habitat structure, the species' body size, the pitch of the species call, the time of day, the day of the season, the duration of time the biologist is listening, and whether they are standing on the side of a road, we can at least estimate the probability of the biologist hearing the bird and recording it on their data sheet.
+I believe we are in an exciting time in the world of statistical and quantitative ecology such that all of the factors going into the ``it depends" are becoming clearer.
+For many species, we have the data, we have the statistical modelling capabilities, we have the computational resources, and we have the domain-specific expert opinion, and so all we now need is the concerted effort to push the field of detectability research ahead.
 
